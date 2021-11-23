@@ -15,4 +15,157 @@ patterns: [
         name: "comment.line.apdl"
         match: "(!|^[ \t]*(\/com|[cC]\\*\\*\\*)[ \t]*,).*$"
     }
+
+    # element names
+    { include: "#apdl_elements_solid" }
+    { include: "#apdl_elements_infinite" }
+    { include: "#apdl_elements_link" }
+    { include: "#apdl_elements_plane" }
+    { include: "#apdl_elements_combination" }
+    { include: "#apdl_elements_mass" }
+    { include: "#apdl_elements_matrix" }
+    { include: "#apdl_elements_shell" }
+    { include: "#apdl_elements_fluid" }
+    { include: "#apdl_elements_source" }
+    { include: "#apdl_elements_circuit" }
+    { include: "#apdl_elements_transducer" }
+    { include: "#apdl_elements_rom" }
+    { include: "#apdl_elements_surface" }
+    { include: "#apdl_elements_target" }
+    { include: "#apdl_elements_contact" }
+    { include: "#apdl_elements_pretension" }
+    { include: "#apdl_elements_mpc" }
+    { include: "#apdl_elements_beam" }
+    { include: "#apdl_elements_solidshell" }
+    { include: "#apdl_elements_interface" }
+    { include: "#apdl_elements_mesh" }
+    { include: "#apdl_elements_follower" }
+    { include: "#apdl_elements_porepressure" }
+    { include: "#apdl_elements_hydrostatic" }
+    { include: "#apdl_elements_reinforcing" }
+    { include: "#apdl_elements_pipe" }
+    { include: "#apdl_elements_elbow" }
+    { include: "#apdl_elements_user" }
 ]
+
+
+
+repository:
+
+    # element names
+    apdl_elements_solid: {
+        name: "support.constant.element.solid.apdl"
+        match: "\\bSOLID(5|65|70|87|90|96|97|98|122|123|164|168|185|186|187|226|227|231|232|236|237|239|240|272|273|278|279|285)\\b"
+    }
+    apdl_elements_infinite: {
+        name: "support.constant.element.infinite.apdl"
+        match: "\\bINFIN(9|47|110|111)\\b"
+    }
+    apdl_elements_link: {
+        name: "support.constant.element.link.apdl"
+        match: "\\bLINK(11|31|33|34|68|160|167|180)\\b"
+    }
+    apdl_elements_plane: {
+        name: "support.constant.element.plane.apdl"
+        match: "\\bPLANE(13|25|35|53|55|75|77|78|83|121|162|230|238)\\b"
+    }
+    apdl_elements_combination: {
+        name: "support.constant.element.combination.apdl"
+        match: "\\bCOMBIN(14|37)|COMBI(214)\\b"
+    }
+    apdl_elements_mass: {
+        name: "support.constant.element.mass.apdl"
+        match: "\\bMASS(21|71|166)\\b"
+    }
+    apdl_elements_matrix: {
+        name: "support.constant.element.matrix.apdl"
+        match: "\\bMATRIX(27|50)\\b"
+    }
+    apdl_elements_shell: {
+        name: "support.constant.element.shell.apdl"
+        match: "\\bSHELL(28|41|61|131|132|157|181|208|209|281)\\b"
+    }
+    apdl_elements_fluid: {
+        name: "support.constant.element.fluid.apdl"
+        match: "\\bFLUID(29|30|38|116|129|130|136|138|139|220|221)\\b"
+    }
+    apdl_elements_source: {
+        name: "support.constant.element.source.apdl"
+        match: "\\bSOURC(36)\\b"
+    }
+    apdl_elements_circuit: {
+        name: "support.constant.element.circuit.apdl"
+        match: "\\bCIRCU(94|124|125)\\b"
+    }
+    apdl_elements_transducer: {
+        name: "support.constant.element.transducer.apdl"
+        match: "\\bTRANS(126)\\b"
+    }
+    apdl_elements_rom: {
+        name: "support.constant.element.rom.apdl"
+        match: "\\bROM(144)\\b"
+    }
+    apdl_elements_surface: {
+        name: "support.constant.element.surface.apdl"
+        match: "\\bSURF(151|152|153|154|156|159|251|252)\\b"
+    }
+    apdl_elements_target: {
+        name: "support.constant.element.target.apdl"
+        match: "\\bTARGE(169|170)\\b"
+    }
+    apdl_elements_contact: {
+        name: "support.constant.element.contact.apdl"
+        match: "\\bCONTA(171|172|173|174|175|176|177|178)\\b"
+    }
+    apdl_elements_pretension: {
+        name: "support.constant.element.pretension.apdl"
+        match: "\\bPRETS(179)\\b"
+    }
+    apdl_elements_mpc: {
+        name: "support.constant.element.mpc.apdl"
+        match: "\\bMPC(184)\\b"
+    }
+    apdl_elements_beam: {
+        name: "support.constant.element.beam.apdl"
+        match: "\\bBEAM(188|189)\\b"
+    }
+    apdl_elements_solidshell: {
+        name: "support.constant.element.solidshell.apdl"
+        match: "\\bSOLSH(190)\\b"
+    }
+    apdl_elements_interface: {
+        name: "support.constant.element.interface.apdl"
+        match: "\\bINTER(192|193|194|195|202|203|204|205)\\b"
+    }
+    apdl_elements_mesh: {
+        name: "support.constant.element.mesh.apdl"
+        match: "\\bMESH(200)\\b"
+    }
+    apdl_elements_follower: {
+        name: "support.constant.element.follower.apdl"
+        match: "\\bFOLLW(201)\\b"
+    }
+    apdl_elements_porepressure: {
+        name: "support.constant.element.porepressure.apdl"
+        match: "\\bCPT(212|213|215|216|217)\\b"
+    }
+    apdl_elements_hydrostatic: {
+        name: "support.constant.element.hydrostatic.apdl"
+        match: "\\bHSFLD(241|242)\\b"
+    }
+    apdl_elements_reinforcing: {
+        name: "support.constant.element.reinforcing.apdl"
+        match: "\\bREINF(263|264|265)\\b"
+    }
+    apdl_elements_pipe: {
+        name: "support.constant.element.pipe.apdl"
+        match: "\\bPIPE(288|289)\\b"
+    }
+    apdl_elements_elbow: {
+        name: "support.constant.element.elbow.apdl"
+        match: "\\bELBOW(290)\\b"
+    }
+    apdl_elements_user: {
+        name: "support.constant.element.user.apdl"
+        match: "\\bUSER(300)\\b"
+    }
