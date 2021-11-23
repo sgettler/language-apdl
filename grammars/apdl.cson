@@ -11,10 +11,24 @@ fileTypes: [
 
 
 patterns: [
+    
+    # comments
     {
         name: "comment.line.apdl"
-        match: "(!|^[ \t]*(\/com|[cC]\\*\\*\\*)[ \t]*,).*$"
+        match: "(!|^[ \\t]*(\/com|[cC]\\*\\*\\*)[ \\t]*,).*$"
     }
+
+    # strings
+    {
+        name: "string.quoted.single.apdl"
+        begin: "\'"
+        end: "\'"
+    }
+
+
+    # APDL commands
+    { include: "#apdl_apdl_process_command" }
+    { include: "#apdl_apdl_process_argument" }
 
     # element names
     { include: "#apdl_elements_solid" }
@@ -51,6 +65,16 @@ patterns: [
 
 
 repository:
+
+    # APDL commands
+    apdl_apdl_process_command: {
+        name: "keyword.control.command.apdl"
+        match: "(?<!\\w)(?i)(\\*(if|elseif|else|endif|do|dowhile|enddo|cycle|exit|go|repeat|return)|\/(wait))\\b"
+    }
+    apdl_apdl_process_argument: {
+        name: "keyword.control.argument.apdl"
+        match: "\\b(?i)(eq|ne|lt|gt|le|ge|ablt|abgt|stop|exit|cycle|then|and|or|xor)\\b"
+    }
 
     # element names
     apdl_elements_solid: {
