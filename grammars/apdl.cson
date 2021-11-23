@@ -1,0 +1,18 @@
+# ANSYS APDL grammar based on Release 15.0 Mechanical APDL documentation
+
+name: "ANSYS APDL"
+scopeName: "source.apdl"
+fileTypes: [
+    "mac"
+    "ans"
+    "inp"
+]
+
+
+
+patterns: [
+    {
+        name: "comment.line.apdl"
+        match: "(!|^[ \t]*(\/com|[cC]\\*\\*\\*)[ \t]*,).*$"
+    }
+]

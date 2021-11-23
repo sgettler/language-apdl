@@ -1,0 +1,21 @@
+{
+    "name": "language-apdl",
+    "version": "0.1.0",
+    "license": "mit",
+    "description": "ANSYS APDL language support in Atom",
+    "keywords": [
+        "apdl",
+        "ansys"
+    ],
+    "engines": {
+        "atom": "*",
+        "node": "*"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/sgettler/language-apdl.git"
+    },
+    "bugs": {
+        "url": "https://github.com/sgettler/language-apdl/issues"
+    }
+}
