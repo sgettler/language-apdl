@@ -15,20 +15,24 @@ patterns: [
     # comments
     {
         name: "comment.line.apdl"
-        match: "(!|^[ \\t]*(\/com|[cC]\\*\\*\\*)[ \\t]*,).*$"
+        match: "(!|^[ \\t]*(?i)(\/com|c\\*\\*\\*)[ \\t]*,).*$"
     }
 
     # strings
     {
         name: "string.quoted.single.apdl"
-        begin: "\'"
-        end: "\'"
+        match: "(\')(.*)(\')"
     }
 
 
     # APDL commands
-    { include: "#apdl_apdl_process_command" }
-    { include: "#apdl_apdl_process_argument" }
+    { include: "#apdl_apdl_parameter_commands" }
+    # { include: "#apdl_apdl_macro_commands" }
+    # { include: "#apdl_apdl_abbreviation_commands" }
+    # { include: "#apdl_apdl_array_commands" }
+    { include: "#apdl_apdl_process_commands" }
+    # { include: "#apdl_apdl_matrix_commands" }
+
 
     # element types
     { include: "#apdl_elements_beam" }
@@ -66,15 +70,184 @@ patterns: [
 
 repository:
 
-    # APDL commands
-    apdl_apdl_process_command: {
-        name: "keyword.control.command.apdl"
-        match: "(?<!\\w)(?i)(\\*(if|elseif|else|endif|do|dowhile|enddo|cycle|exit|go|repeat|return)|\/(wait))\\b"
+    # APDL commands; see Command Reference 2.4
+    apdl_apdl_parameter_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\\*ask|\\*set|\\*taxis|\\*tread|\\*vread)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*afun)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(rad|deg|stat)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*del)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|_prm|prm_)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*dim)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(array|arr4|arr5|char|table|tab4|tab5|string)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*get)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    # 2: patterns: [
+                    # ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/inquire)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(login|docu|apdl|prog|auth|user|directory|jobname|rstdir|rstfile|rstext|psearch|output|env|title|exist|date|size|write|read|exec|lines)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(parres)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(new|change)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(parsav)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(scalar|all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*status)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|_prm|prm_|abbr|parm|math)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*vfill)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(data|ramp|rand|gdis|tria|beta|gamm|rigid)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*vget)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    # 2: patterns: [
+                    # ]
+            }
+        ]
     }
-    apdl_apdl_process_argument: {
-        name: "keyword.control.argument.apdl"
-        match: "\\b(?i)(eq|ne|lt|gt|le|ge|ablt|abgt|stop|exit|cycle|then|and|or|xor)\\b"
+
+    apdl_apdl_macro_commands: {
+        patterns: [
+
+        ]
     }
+
+    apdl_apdl_abbreviation_commands: {
+        patterns: [
+
+        ]
+    }
+
+    apdl_apdl_array_commands: {
+        patterns: [
+
+        ]
+    }
+
+    apdl_apdl_process_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\\*cycle|\\*do|\\*dowhile|\\*else|\\*enddo|\\*endif|\\*exit|\\*repeat|\\*return|\/wait)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*elseif)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(eq|ne|lt|gt|le|ge|ablt|abgt|and|or|xor)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*go)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(stop)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\\*if)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(eq|ne|lt|gt|le|ge|ablt|abgt|stop|exit|cycle|then|and|or|xor)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+        ]
+    }
+
+    apdl_apdl_matrix_commands: {
+        patterns: [
+
+        ]
+    }
+
 
     # element types; see Element Reference 2.2
     apdl_elements_beam: {
