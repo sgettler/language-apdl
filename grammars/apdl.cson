@@ -87,8 +87,642 @@ repository:
                 match: "^[ \\t]*(?i)(\\*get)\\b([^!]*)"
                 captures:
                     1: name: "keyword.control.commands.apdl"
-                    # 2: patterns: [
-                    # ]
+                    2: patterns: [
+                        # items appearing in multiple contexts
+                        {
+                            match: "\\b(?i)(active)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    # general
+                                    {
+                                        match: "\\b(?i)(int|imme|menu|prkey|units|rout|time|wall|cpu|dbase|ldate|dbase|ltime|rev|title|jobnam|platform|nproc|curr|max|maxp|numcpu)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                    # preprocessing
+                                    {
+                                        match: "\\b(?i)(seg|csys|dsys|mat|type|real|esys|sect|cp|ce|wfront|max|rms)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                    # solution
+                                    {
+                                        match: "\\b(?i)(anty|solu|dtime|ncmls|ncmss|eqit|ncmit|cnvg|mxdvl|resfrq|reseig|dsprm|focv|mocv|hfcv|mfcv|cscv|cucv|ffcv|dicv|rocv|tecv|vmcv|smcv|vocv|prcv|vecv|crprat|psinc|cgiter)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                    # postprocessing
+                                    {
+                                        match: "\\b(?i)(set|lstp|sbst|time|freq|nset|first|last|rsys)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(elem)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    # preprocessing
+                                    {
+                                        match: "\\b(?i)(node|cent|x|y|z|adj|attr|leng|lproj|x|y|z|area|aproj|x|y|z|volu|esel|nxth|nxtl|hgen|dgen|hcoe|tbulk|pres|shpar|num|max|min|num|maxd|mind|count)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                    # solution
+                                    {
+                                        match: "\\b(?i)(mtot|x|y|z|mc|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|iprin|x|y|ziang|xy|yz|zx|fmc|x|y|z|mmor|x|y|z|mmmc|x|y|z)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                    # postprocessing
+                                    {
+                                        match: "\\b(?i)(serr|sdsg|terr|tdsg|sene|tene|kene|jheat|js|x|y|z|hs|x|y|z|volu|etab|efor|fx|fy|fz|mx|my|mz|heat|smisc|nmisc|fsou)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(node)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    # preprocessing
+                                    {
+                                        match: "\\b(?i)(loc|x|y|z|ang|xy|yz|zx|nsel|nxth|nxtl|f|fx|fy|fz|mx|my|mz|d|ux|uy|uz|rotx|roty|rotz|hgen|ntemp|cps|dgen|num|max|min|num|maxd|mind|count|mxloc|x|y|z|mnloc|x|y|z|internal)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                    # postprocessing
+                                    {
+                                        match: "\\b(?i)(u|x|y|z|sum|rot|x|y|z|sum|temp|pres|volt|conc|mag|v|x|y|z|sum|a|x|y|z|sum|curr|emf|rf|fx|fy|fz|mx|my|mz|orbt|a|b|psi|phi|yax|zmax|s|x|y|z|xy|yz|xz|int|eqv|maxf|twsi|twsr|epto|x|y|z|xy|yz|xz|int|eqv|epel|x|y|z|xy|yz|xz|int|eqv|eppl|x|y|z|xy|yz|xz|int|eqv|epcr|x|y|z|xy|yz|xz|int|eqv|cdm|dmg|lm|gks|x|xy|xz|gkd|x|xy|xz|gkdi|x|xy|xz|gkth|x|xy|xz|epth|x|y|z|xy|yz|xz|int|eqv|epsw|fail|max|emax|smax|twsi|twsr|hfib|hmat|pfib|pmat|l3fb|l3mt|l4fb|l4mt|nl|sepl|srat|hpres|epeq|psv|plwk|tg|x|y|z|sum|tf|x|y|z|sum|pg|x|y|z|sum|ef|x|y|z|sum|d|x|y|z|sum|h|x|y|z|sum|b|x|y|z|sum|cg|x|y|z|sum|df|x|y|z|sum|fmag|x|y|z|sum|hs|x|y|z|bfe|temp|fict|temp)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        # general entity items
+                        {
+                            match: "\\b(?i)(cmd)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(stat|nargs|field)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(comp)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(ncomp|name|type|nscomp|sname)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(graph)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(active|angle|contour|dist|dscale|mult|edge|focus|x|y|z|gline|mode|normal|range|xmin|xmax|ymin|ymax|ratio|x|y|sscale|smult|type|vcone|angle|view|x|y|z|vscale|vratio|display|erase|ndist|number|plopts|seg|shrink)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(parm)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(max|basic|loc|type|dim|x|y|z|csys|var)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        # preprocessing entity items
+                        {
+                            match: "\\b(?i)(area)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(attr|asel|nxth|nxtl|area|loop|num|max|min|num|maxd|mind|count|area|volu|cent|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|ipr|x|y|z|ixv|x|y|z|iyv|x|y|z|izv|x|y|z)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(axis)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(count|num|max|type|name|data)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(cdsy)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(loc|x|y|z|ang|xy|yz|zx|attr|num|max)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(ce)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(max|num|nterm|const|term)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(cmpb)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(count|num|max|exis|name|cbmx|cbte|cbmd|cbmx|cbte|cbmd|cbmx|cbte|cbmd)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(cp)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(max|num|dof|nterm|term)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(csec)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(count|num|max|type|name|data)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(edcc)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(comp|part|count)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(etyp)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(attr|num|max)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(fldata)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        {
+                            match: "\\b(?i)(genb)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(count|num|max|exis|subtype|name|bsax|bsm1|bsm2|bstq|bss1|bss2|bsmd|bste|bsax|bsm1|bsm2|bstq|bss1|bss2|bsmd|bste|bsax|bsm1|bsm2|bstq|bss1|bss2|bsmd|bste|bsax|bsm1|bsm2|bstq|bss1|bss2|bsmd|bste)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(gens)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(count|num|max|exis|name|sspa|sspb|sspd|sspe|ssmt|ssbt|sspm|sspa|sspb|sspd|sspe|ssmt|ssbt|sspm|sspa|sspb|sspd|sspe|ssmt|ssbt|sspm)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(kp)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(loc|x|y|z|attr|ksel|nxth|nxtl|div|num|max|min|num|maxd|mind|count|cent|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|ipr|x|y|z|ixv|x|y|z|iyv|x|y|z|izv|x|y|z|mxloc|x|y|z|mnloc|x|y|z|nrelm)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(line)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(kp|attr|lsel|nxth|nxtl|leng|num|max|min|num|maxd|mind|count|cent|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|ipr|x|y|z|ixv|x|y|z|iyv|x|y|z|izv|x|y|z)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(mat)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(count|num|max)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(mplab)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(temp)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(ocean)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(name|data|prop|nrow|tabl|count)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(oczone)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(data|prop|nrow|tabl|type|comp|comp2|name|count)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(pipe)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(count|num|max|type|subtype|name|data|sflex|prop|area|iyy|iyz|izz|tors|scyy|scyz|sczz|offy|offz|addmas)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(part)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(type|mat|real|nump)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(rcon)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(const|num|max)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(rein)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(type|subtype|name|nrein|tabl)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(sctn)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        {
+                            match: "\\b(?i)(secp)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(count|num|max|type|subtype|name|data|prop|area|iyy|iyz|izz|warp|tors|cgy|cgz|shcy|shcz|scyy|scyz|sczz|offset|offy|offz)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(shel)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(type|name|prop|tthk|nlay|nsp|pos|offz|ts11|ts22|ts12|horc|func|ut11|ut22|ut12|amas|mscf|bscf|dstf|lden|fkcn|layd|thic|mat|angl|nint)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(tbft)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(nmat|matnum|nfun|func|expe|expindex)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(tblab)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(temp)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(volu)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(attr|vsel|nxth|nxtl|volu|shell|area|num|max|min|num|maxd|mind|count|volu|cent|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|ipr|x|y|z|ixv|x|y|z|iyv|x|y|z|izv|x|y|z)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(weld)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(node|nxth|num|max|min|count)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        # solution entity items
+                        {
+                            match: "\\b(?i)(mode)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(freq|imag|pfact|mcoef|damp)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        # postprocessing entity items
+                        {
+                            match: "\\b(?i)(camp)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(nbmo|nbst|whrl|vcri|freq|stab|ukey|vsta)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(cint)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(ctip|ctnum)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(etab)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(elem|ncol|max|nleng|max)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(fsum)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(fx|fy|fz|mx|my|mz|flow|heat|flux)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(gsresult)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(lfiber|rot|x|y|f|m|x|y)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(intsrf)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(pres|fx|fy|fz|mx|my|mz|tauw|fx|fy|fz|mx|my|mz)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(kcalc)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(k)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(path)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(max|maxpath|min|last|node|item|point|nval|set|numpath|name|k)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(plnsol)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(max|min|bmax|bmin)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(prerr)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(sepc|tepc|sersm|tersm|sensm|tensm)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(rad)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(vfavg|nethf)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(rstmac)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(ns1|ns2|mac)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(secr)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(all|s|x|y|z|xy|yz|xz|int|eqv|qpto|x|y|z|xy|yz|xz|int|eqv|epel|x|y|z|xy|yz|xz|int|eqv|epth|x|y|z|xy|yz|xz|int|eqv|eppl|x|y|z|xy|yz|xz|int|eqv|epcr|x|y|z|xy|yz|xz|int|eqv|eptt|x|y|z|xy|yz|xz|int|eqv|epdi|x|y|z|xy|yz|xz|int|eqv|max|min|maxy|maxz|miny|minz|ival|jval|kval)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(section)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(membrane|bending|sum|peak|total|inside|s|x|y|z|xy|yz|xz|int|eqv|center|s|x|y|z|xy|yz|xz|int|eqv|outside|s|x|y|z|xy|yz|xz|int|eqv)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(sort)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(max|min|imax|imin)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(ssum)\\b(.*)"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        {
+                            match: "\\b(?i)(vari)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(extrem|vmax|tmax|vmin|tmin|vlast|tlast|cvar|rtime|itime|rset|iset|nsets)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        {
+                            match: "\\b(?i)(acus)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(pwl|pres|phase|spl|spla|dg|ps|ts)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                        # probabilistic design entity items
+                        {
+                            match: "\\b(?i)(pds)\\b(.*)"
+                            captures:
+                                1: name: "keyword.control.arguments.apdl"
+                                2: patterns: [
+                                    {
+                                        match: "\\b(?i)(anln|anlx|anld|astp|corr|meth|nsim|ntrp|ntrv|par1|par2|par3|par4|rnam|samp|vdis|vnam|ccdl|bbml|nrss|nsol|meth|nsim|samp|rlab|mean|stdv|kurt|skew|min|max|ccdl|bbml|rsst|rsur|rseq)\\b"
+                                        name: "keyword.control.arguments.apdl"
+                                    }
+                                ]
+                        }
+                    ]
             }
             {
                 match: "^[ \\t]*(?i)(\/inquire)\\b([^!]*)"
