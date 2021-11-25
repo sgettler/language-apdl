@@ -14,14 +14,15 @@ patterns: [
 
     # comments
     {
-        name: "comment.line.apdl"
         match: "!.*$"
+        name: "comment.line.apdl"
     }
 
     # strings
     {
+        begin: "\'"
+        end: "\'"
         name: "string.quoted.single.apdl"
-        match: "(\')(.*)(\')"
     }
 
 
