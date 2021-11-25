@@ -15,7 +15,7 @@ patterns: [
     # comments
     {
         name: "comment.line.apdl"
-        match: "(!|^[ \\t]*(?i)(\/com|c\\*\\*\\*)[ \\t]*,).*$"
+        match: "!.*$"
     }
 
     # strings
@@ -26,6 +26,7 @@ patterns: [
 
 
     # commands
+    { include: "#apdl_session_commands" }
     { include: "#apdl_apdl_commands" }
 
 
@@ -37,6 +38,258 @@ patterns: [
 
 
 repository:
+
+    # session commands; see Command Reference 2.1
+    apdl_session_commands: {
+        patterns: [
+            { include: "#apdl_session_run_commands" }
+            { include: "#apdl_session_processor_commands" }
+            { include: "#apdl_session_file_commands" }
+            { include: "#apdl_session_list_commands" }
+        ]
+    }
+
+    apdl_session_run_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\/cwd|\/eof|help|\/input|keyw|pause|\/syp|\/sys|unpause)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\/batch)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(list)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/config)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(norstgm|nbuf|locfl|szbio|order|fsplit|mxnd|mxnd|mxel|mxkp|mxls|mxar|mxvl|mxrl|mxcp|mxce|noeldb|dyna_dbl|stat)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/exit)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(model|solu|all|nosave)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/filname)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(off|on)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(memm)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(on|off)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/menu)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(on|grph)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/mstart)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(zoom|work|wpset|abbr|parm|sele|anno|hard|util|off|on)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/nerr)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(off|on)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/output)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(append)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/status)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|title|units|mem|db|config|solu|prod)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/ui)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(help|view|wpse|wpvi|result|query|copy|anno|an3d|select|nsel|esel|ksel|lsel|asel|vsel|refresh|coll|s|r|a|u|node|element|yes|no|pscr|tiff|epsi|bmp|wmf|emf|jpeg|full|graph|mono|gray|color|norm|reverse|landscape|portrait|yes|no)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/uis)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(bord|msgpop|replot|abort|dyna|pick|power|dpro|undo|lege|pbak|zpic|hpop|pan|zoom|rotate|on|off|off|on|none|comment|remove|off|on|off|on|off|on)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+
+
+
+        ]
+    }
+
+    apdl_session_processor_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\/aux2|\/aux3|\/aux12|\/aux15|finish|\/map|\/post1|\/post26|\/prep7|\/quit|\/solu)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+        ]
+    }
+
+    apdl_session_file_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(anstoasas|\/assign|\/clog|\/list)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(anstoaqwa)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(y|z)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/copy)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(on|yes|off|no)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/delete)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(on|yes|off|no)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/fdele)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(keep|dele)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(lgwrite)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(none|comment|remove)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/rename)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(on|yes|off|no)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                    ]
+            }
+        ]
+    }
+
+    apdl_session_list_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(c\\*\\*\\*)(?!\w)" # seriously?
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\/com|\/go|\/golist|\/gopr|\/nolist|\/nopr)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+        ]
+    }
+
 
     # APDL commands; see Command Reference 2.4
     apdl_apdl_commands: {
