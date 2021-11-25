@@ -1587,6 +1587,10 @@ repository:
                             match: "\\b(?i)(nsel|esel|ksel|lsel|asel|vsel|ndnext|elnext|kpnext|lsnext|arnext|vlnext|centrx|centry|centrz|nx|ny|nz|kx|ky|kz|lx|ly|lz|lsx|lsy|lsz|node|kp|distnd|distkp|disten|anglen|anglek|nnear|knear|enearn|areand|areakp|arnode|normnx|normny|normnz|normkx|normky|normkz|enextn|nelem|nodedof|eladj|ndface|nmface|arface|eatt|rcon|ux|uy|uz|rotx|roty|rotz|temp|pres|vx|vy|vz|volt|mag|ax|ay|az|virtinqr|kwget|valchr|valoct|valhex|chrval|chroct|chrhex|strsub|strcat|strfill|strcomp|strleft|strpos|strleng|upcase|lwcase|join|split)\\b"
                             name: "support.function.apdl"
                         }
+                        {
+                            match: "\\b(?i)(max|min)\\b" # undocumented?
+                            name: "support.function.apdl"
+                        }
                     ]
                 end: "(?<=\\))"
                 name: "meta.function.apdl"
