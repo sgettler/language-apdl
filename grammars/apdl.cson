@@ -397,6 +397,8 @@ repository:
                                         match: "\\b(?i)(set|lstp|sbst|time|freq|nset|first|last|rsys)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    # other
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -419,6 +421,8 @@ repository:
                                         match: "\\b(?i)(serr|sdsg|terr|tdsg|sene|tene|kene|jheat|js|x|y|z|hs|x|y|z|volu|etab|efor|fx|fy|fz|mx|my|mz|heat|smisc|nmisc|fsou)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    # other
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -436,6 +440,8 @@ repository:
                                         match: "\\b(?i)(u|x|y|z|sum|rot|x|y|z|sum|temp|pres|volt|conc|mag|v|x|y|z|sum|a|x|y|z|sum|curr|emf|rf|fx|fy|fz|mx|my|mz|orbt|a|b|psi|phi|yax|zmax|s|x|y|z|xy|yz|xz|int|eqv|maxf|twsi|twsr|epto|x|y|z|xy|yz|xz|int|eqv|epel|x|y|z|xy|yz|xz|int|eqv|eppl|x|y|z|xy|yz|xz|int|eqv|epcr|x|y|z|xy|yz|xz|int|eqv|cdm|dmg|lm|gks|x|xy|xz|gkd|x|xy|xz|gkdi|x|xy|xz|gkth|x|xy|xz|epth|x|y|z|xy|yz|xz|int|eqv|epsw|fail|max|emax|smax|twsi|twsr|hfib|hmat|pfib|pmat|l3fb|l3mt|l4fb|l4mt|nl|sepl|srat|hpres|epeq|psv|plwk|tg|x|y|z|sum|tf|x|y|z|sum|pg|x|y|z|sum|ef|x|y|z|sum|d|x|y|z|sum|h|x|y|z|sum|b|x|y|z|sum|cg|x|y|z|sum|df|x|y|z|sum|fmag|x|y|z|sum|hs|x|y|z|bfe|temp|fict|temp)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    # other
+                                    { include: "$self" }
                                 ]
                         }
                         # general entity items
@@ -448,6 +454,7 @@ repository:
                                         match: "\\b(?i)(stat|nargs|field)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -459,6 +466,7 @@ repository:
                                         match: "\\b(?i)(ncomp|name|type|nscomp|sname)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -470,6 +478,7 @@ repository:
                                         match: "\\b(?i)(active|angle|contour|dist|dscale|mult|edge|focus|x|y|z|gline|mode|normal|range|xmin|xmax|ymin|ymax|ratio|x|y|sscale|smult|type|vcone|angle|view|x|y|z|vscale|vratio|display|erase|ndist|number|plopts|seg|shrink)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -481,6 +490,7 @@ repository:
                                         match: "\\b(?i)(max|basic|loc|type|dim|x|y|z|csys|var)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         # preprocessing entity items
@@ -493,6 +503,7 @@ repository:
                                         match: "\\b(?i)(attr|asel|nxth|nxtl|area|loop|num|max|min|num|maxd|mind|count|area|volu|cent|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|ipr|x|y|z|ixv|x|y|z|iyv|x|y|z|izv|x|y|z)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -504,6 +515,7 @@ repository:
                                         match: "\\b(?i)(count|num|max|type|name|data)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -515,6 +527,7 @@ repository:
                                         match: "\\b(?i)(loc|x|y|z|ang|xy|yz|zx|attr|num|max)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -526,6 +539,7 @@ repository:
                                         match: "\\b(?i)(max|num|nterm|const|term)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -537,6 +551,7 @@ repository:
                                         match: "\\b(?i)(count|num|max|exis|name|cbmx|cbte|cbmd|cbmx|cbte|cbmd|cbmx|cbte|cbmd)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -548,6 +563,7 @@ repository:
                                         match: "\\b(?i)(max|num|dof|nterm|term)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -559,6 +575,7 @@ repository:
                                         match: "\\b(?i)(count|num|max|type|name|data)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -570,6 +587,7 @@ repository:
                                         match: "\\b(?i)(comp|part|count)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -581,6 +599,7 @@ repository:
                                         match: "\\b(?i)(attr|num|max)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -596,6 +615,7 @@ repository:
                                         match: "\\b(?i)(count|num|max|exis|subtype|name|bsax|bsm1|bsm2|bstq|bss1|bss2|bsmd|bste|bsax|bsm1|bsm2|bstq|bss1|bss2|bsmd|bste|bsax|bsm1|bsm2|bstq|bss1|bss2|bsmd|bste|bsax|bsm1|bsm2|bstq|bss1|bss2|bsmd|bste)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -607,6 +627,7 @@ repository:
                                         match: "\\b(?i)(count|num|max|exis|name|sspa|sspb|sspd|sspe|ssmt|ssbt|sspm|sspa|sspb|sspd|sspe|ssmt|ssbt|sspm|sspa|sspb|sspd|sspe|ssmt|ssbt|sspm)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -618,6 +639,7 @@ repository:
                                         match: "\\b(?i)(loc|x|y|z|attr|ksel|nxth|nxtl|div|num|max|min|num|maxd|mind|count|cent|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|ipr|x|y|z|ixv|x|y|z|iyv|x|y|z|izv|x|y|z|mxloc|x|y|z|mnloc|x|y|z|nrelm)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -629,6 +651,7 @@ repository:
                                         match: "\\b(?i)(kp|attr|lsel|nxth|nxtl|leng|num|max|min|num|maxd|mind|count|cent|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|ipr|x|y|z|ixv|x|y|z|iyv|x|y|z|izv|x|y|z)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -640,6 +663,7 @@ repository:
                                         match: "\\b(?i)(count|num|max)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -651,6 +675,7 @@ repository:
                                         match: "\\b(?i)(temp)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -662,6 +687,7 @@ repository:
                                         match: "\\b(?i)(name|data|prop|nrow|tabl|count)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -673,6 +699,7 @@ repository:
                                         match: "\\b(?i)(data|prop|nrow|tabl|type|comp|comp2|name|count)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -684,6 +711,7 @@ repository:
                                         match: "\\b(?i)(count|num|max|type|subtype|name|data|sflex|prop|area|iyy|iyz|izz|tors|scyy|scyz|sczz|offy|offz|addmas)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -695,6 +723,7 @@ repository:
                                         match: "\\b(?i)(type|mat|real|nump)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -706,6 +735,7 @@ repository:
                                         match: "\\b(?i)(const|num|max)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -717,6 +747,7 @@ repository:
                                         match: "\\b(?i)(type|subtype|name|nrein|tabl)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -732,6 +763,7 @@ repository:
                                         match: "\\b(?i)(count|num|max|type|subtype|name|data|prop|area|iyy|iyz|izz|warp|tors|cgy|cgz|shcy|shcz|scyy|scyz|sczz|offset|offy|offz)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -743,6 +775,7 @@ repository:
                                         match: "\\b(?i)(type|name|prop|tthk|nlay|nsp|pos|offz|ts11|ts22|ts12|horc|func|ut11|ut22|ut12|amas|mscf|bscf|dstf|lden|fkcn|layd|thic|mat|angl|nint)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -754,6 +787,7 @@ repository:
                                         match: "\\b(?i)(nmat|matnum|nfun|func|expe|expindex)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -765,6 +799,7 @@ repository:
                                         match: "\\b(?i)(temp)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -776,6 +811,7 @@ repository:
                                         match: "\\b(?i)(attr|vsel|nxth|nxtl|volu|shell|area|num|max|min|num|maxd|mind|count|volu|cent|x|y|z|ior|x|y|z|xy|yz|zx|imc|x|y|z|xy|yz|zx|ipr|x|y|z|ixv|x|y|z|iyv|x|y|z|izv|x|y|z)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -787,6 +823,7 @@ repository:
                                         match: "\\b(?i)(node|nxth|num|max|min|count)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         # solution entity items
@@ -799,6 +836,7 @@ repository:
                                         match: "\\b(?i)(freq|imag|pfact|mcoef|damp)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         # postprocessing entity items
@@ -811,6 +849,7 @@ repository:
                                         match: "\\b(?i)(nbmo|nbst|whrl|vcri|freq|stab|ukey|vsta)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -822,6 +861,7 @@ repository:
                                         match: "\\b(?i)(ctip|ctnum)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -833,6 +873,7 @@ repository:
                                         match: "\\b(?i)(elem|ncol|max|nleng|max)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -844,6 +885,7 @@ repository:
                                         match: "\\b(?i)(fx|fy|fz|mx|my|mz|flow|heat|flux)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -855,6 +897,7 @@ repository:
                                         match: "\\b(?i)(lfiber|rot|x|y|f|m|x|y)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -866,6 +909,7 @@ repository:
                                         match: "\\b(?i)(pres|fx|fy|fz|mx|my|mz|tauw|fx|fy|fz|mx|my|mz)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -877,6 +921,7 @@ repository:
                                         match: "\\b(?i)(k)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -888,6 +933,7 @@ repository:
                                         match: "\\b(?i)(max|maxpath|min|last|node|item|point|nval|set|numpath|name|k)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -899,6 +945,7 @@ repository:
                                         match: "\\b(?i)(max|min|bmax|bmin)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -910,6 +957,7 @@ repository:
                                         match: "\\b(?i)(sepc|tepc|sersm|tersm|sensm|tensm)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -921,6 +969,7 @@ repository:
                                         match: "\\b(?i)(vfavg|nethf)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -932,6 +981,7 @@ repository:
                                         match: "\\b(?i)(ns1|ns2|mac)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -943,6 +993,7 @@ repository:
                                         match: "\\b(?i)(all|s|x|y|z|xy|yz|xz|int|eqv|qpto|x|y|z|xy|yz|xz|int|eqv|epel|x|y|z|xy|yz|xz|int|eqv|epth|x|y|z|xy|yz|xz|int|eqv|eppl|x|y|z|xy|yz|xz|int|eqv|epcr|x|y|z|xy|yz|xz|int|eqv|eptt|x|y|z|xy|yz|xz|int|eqv|epdi|x|y|z|xy|yz|xz|int|eqv|max|min|maxy|maxz|miny|minz|ival|jval|kval)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -954,6 +1005,7 @@ repository:
                                         match: "\\b(?i)(membrane|bending|sum|peak|total|inside|s|x|y|z|xy|yz|xz|int|eqv|center|s|x|y|z|xy|yz|xz|int|eqv|outside|s|x|y|z|xy|yz|xz|int|eqv)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -965,6 +1017,7 @@ repository:
                                         match: "\\b(?i)(max|min|imax|imin)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -980,6 +1033,7 @@ repository:
                                         match: "\\b(?i)(extrem|vmax|tmax|vmin|tmin|vlast|tlast|cvar|rtime|itime|rset|iset|nsets)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -991,6 +1045,7 @@ repository:
                                         match: "\\b(?i)(pwl|pres|phase|spl|spla|dg|ps|ts)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         # probabilistic design entity items
@@ -1003,10 +1058,9 @@ repository:
                                         match: "\\b(?i)(anln|anlx|anld|astp|corr|meth|nsim|ntrp|ntrv|par1|par2|par3|par4|rnam|samp|vdis|vnam|ccdl|bbml|nrss|nsol|meth|nsim|samp|rlab|mean|stdv|kurt|skew|min|max|ccdl|bbml|rsst|rsur|rseq)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
-                        # other
-                        { include: "$self" }
                     ]
             }
             {
@@ -1090,6 +1144,8 @@ repository:
                                         match: "\\b(?i)(u|x|y|z|rot|x|y|z|temp|pres|volt|mag|v|x|y|z|a|x|y|z|curr|emf|s|x|y|z|xy|yz|xz|int|eqv|epto|x|y|z|xy|yz|xz|int|eqv|epel|x|y|z|xy|yz|xz|int|eqv|eppl|x|y|z|xy|yz|xz|int|eqv|epcr|x|y|z|xy|yz|xz|int|eqv|epth|x|y|z|xy|yz|xz|int|eqv|epsw|epdi|x|y|z|xy|yz|xz|int|eqv|nl|sepl|srat|hpres|epeq|psv|plwk|hs|x|y|z|bfe|temp|tg|x|y|z|sum|tf|x|y|z|sum|pg|x|y|z|sum|ef|x|y|z|sum|d|x|y|z|sum|h|x|y|z|sum|b|x|y|z|sum|fmag|x|y|z|sum)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    # other
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -1107,6 +1163,8 @@ repository:
                                         match: "\\b(?i)(etab)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    # other
+                                    { include: "$self" }
                                 ]
                         }
                         # preprocessing items
@@ -1119,6 +1177,7 @@ repository:
                                         match: "\\b(?i)(loc|x|y|z|attr|mat|type|real|esys|node|elem|div|ksel|klist)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -1130,6 +1189,7 @@ repository:
                                         match: "\\b(?i)(kp|attr|mat|type|real|esys|nnod|nelm|ndiv|leng|lsel|llist)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -1141,6 +1201,7 @@ repository:
                                         match: "\\b(?i)(loop|line|attr|mat|type|real|esys|secn|nnod|nelm|area|asel|alist)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -1152,6 +1213,7 @@ repository:
                                         match: "\\b(?i)(shell|area|attr|mat|type|real|esys|nnod|nelm|volu|vsel|vlist)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -1163,6 +1225,7 @@ repository:
                                         match: "\\b(?i)(loc|x|y|z|ang|xy|yz|zx|attr|kcs|kthet|kphi|par1|par2)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -1174,6 +1237,7 @@ repository:
                                         match: "\\b(?i)(const)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -1185,10 +1249,9 @@ repository:
                                         match: "\\b(?i)(temp|const)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
-                        # other
-                        { include: "$self" }
                     ]
             }
         ]
@@ -1353,6 +1416,7 @@ repository:
                                         match: "\\b(?i)(u|x|y|z|rot|x|y|z|temp|pres|volt|mag|v|x|y|z|a|x|y|z|conc|curr|emf|s|x|y|z|xy|yz|xz|int|eqv|epto|x|y|z|xy|yz|xz|int|eqv|epel|x|y|z|xy|yz|xz|int|eqv|eppl|x|y|z|xy|yz|xz|int|eqv|epcr|x|y|z|xy|yz|xz|int|eqv|epth|x|y|z|xy|yz|xz|int|eqv|epsw|nl|sepl|srat|hpres|epeq|psv|plwk|hs|x|y|z|bfe|temp|tg|x|y|z|tf|x|y|z|pg|x|y|z|ef|x|y|z|d|x|y|z|h|x|y|z|b|x|y|z|fmag|x|y|z)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
                         {
@@ -1364,10 +1428,9 @@ repository:
                                         match: "\\b(?i)(etab)\\b"
                                         name: "keyword.control.arguments.apdl"
                                     }
+                                    { include: "$self" }
                                 ]
                         }
-                        # other
-                        { include: "$self" }
                     ]
             }
             {
