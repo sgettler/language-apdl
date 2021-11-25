@@ -30,6 +30,8 @@ patterns: [
     { include: "#apdl_session_commands" }
     { include: "#apdl_apdl_commands" }
 
+    # functions
+    { include: "#apdl_functions" }
 
     # element types
     { include: "#apdl_elements" }
@@ -65,6 +67,7 @@ repository:
                             match: "\\b(?i)(list)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -76,6 +79,7 @@ repository:
                             match: "\\b(?i)(norstgm|nbuf|locfl|szbio|order|fsplit|mxnd|mxnd|mxel|mxkp|mxls|mxar|mxvl|mxrl|mxcp|mxce|noeldb|dyna_dbl|stat)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -87,6 +91,7 @@ repository:
                             match: "\\b(?i)(model|solu|all|nosave)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -98,6 +103,7 @@ repository:
                             match: "\\b(?i)(off|on)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -109,6 +115,7 @@ repository:
                             match: "\\b(?i)(on|off)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -120,6 +127,7 @@ repository:
                             match: "\\b(?i)(on|grph)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -131,6 +139,7 @@ repository:
                             match: "\\b(?i)(zoom|work|wpset|abbr|parm|sele|anno|hard|util|off|on)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -142,6 +151,7 @@ repository:
                             match: "\\b(?i)(off|on)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -153,6 +163,7 @@ repository:
                             match: "\\b(?i)(append)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -164,6 +175,7 @@ repository:
                             match: "\\b(?i)(all|title|units|mem|db|config|solu|prod)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -175,6 +187,7 @@ repository:
                             match: "\\b(?i)(help|view|wpse|wpvi|result|query|copy|anno|an3d|select|nsel|esel|ksel|lsel|asel|vsel|refresh|coll|s|r|a|u|node|element|yes|no|pscr|tiff|epsi|bmp|wmf|emf|jpeg|full|graph|mono|gray|color|norm|reverse|landscape|portrait|yes|no)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -186,6 +199,7 @@ repository:
                             match: "\\b(?i)(bord|msgpop|replot|abort|dyna|pick|power|dpro|undo|lege|pbak|zpic|hpop|pan|zoom|rotate|on|off|off|on|none|comment|remove|off|on|off|on|off|on)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
 
@@ -218,6 +232,7 @@ repository:
                             match: "\\b(?i)(y|z)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -229,6 +244,7 @@ repository:
                             match: "\\b(?i)(on|yes|off|no)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -240,6 +256,7 @@ repository:
                             match: "\\b(?i)(on|yes|off|no)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -251,6 +268,7 @@ repository:
                             match: "\\b(?i)(keep|dele)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -262,6 +280,7 @@ repository:
                             match: "\\b(?i)(none|comment|remove)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -273,6 +292,7 @@ repository:
                             match: "\\b(?i)(on|yes|off|no)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
         ]
@@ -319,6 +339,7 @@ repository:
                             match: "\\b(?i)(rad|deg|stat)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -330,6 +351,7 @@ repository:
                             match: "\\b(?i)(all|_prm|prm_)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -341,6 +363,7 @@ repository:
                             match: "\\b(?i)(array|arr4|arr5|char|table|tab4|tab5|string)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -982,6 +1005,8 @@ repository:
                                     }
                                 ]
                         }
+                        # other
+                        { include: "$self" }
                     ]
             }
             {
@@ -993,6 +1018,7 @@ repository:
                             match: "\\b(?i)(login|docu|apdl|prog|auth|user|directory|jobname|rstdir|rstfile|rstext|psearch|output|env|title|exist|date|size|write|read|exec|lines)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1004,6 +1030,7 @@ repository:
                             match: "\\b(?i)(new|change)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1015,6 +1042,7 @@ repository:
                             match: "\\b(?i)(scalar|all)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1026,6 +1054,7 @@ repository:
                             match: "\\b(?i)(all|_prm|prm_|abbr|parm|math)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1037,6 +1066,7 @@ repository:
                             match: "\\b(?i)(data|ramp|rand|gdis|tria|beta|gamm|rigid)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1157,6 +1187,8 @@ repository:
                                     }
                                 ]
                         }
+                        # other
+                        { include: "$self" }
                     ]
             }
         ]
@@ -1177,6 +1209,7 @@ repository:
                             match: "\\b(?i)(append)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1188,6 +1221,7 @@ repository:
                             match: "\\b(?i)(info|note|warn|error|fatal|ui)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1199,6 +1233,7 @@ repository:
                             match: "\\b(?i)(new|append|end)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
         ]
@@ -1219,6 +1254,7 @@ repository:
                             match: "\\b(?i)(new|change)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1230,6 +1266,7 @@ repository:
                             match: "\\b(?i)(all)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
         ]
@@ -1250,6 +1287,7 @@ repository:
                             match: "\\b(?i)(fit|eval)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1261,6 +1299,7 @@ repository:
                             match: "\\b(?i)(copy|tran)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1272,6 +1311,7 @@ repository:
                             match: "\\b(?i)(invert|mult|covar|corr|solv|sort|nnear|enear|map)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1283,6 +1323,7 @@ repository:
                             match: "\\b(?i)(acos|asin|asort|atan|comp|copy|cos|cosh|dircos|dsort|euler|exp|expa|log|log10|nint|not|prin|pwr|sin|sinh|sqrt|tan|tanh|tang|norm|local|global)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1294,6 +1335,7 @@ repository:
                             match: "\\b(?i)(add|sub|mult|div|min|max|lt|le|eq|ne|ge|gt|der1|der2|int1|int2|dot|cross|gath|scat|atn2|local|global)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1301,6 +1343,7 @@ repository:
                 captures:
                     1: name: "keyword.control.commands.apdl"
                     2: patterns: [
+                        # postprocessing items
                         {
                             match: "\\b(?i)(node)\\b(.*)"
                             captures:
@@ -1323,6 +1366,8 @@ repository:
                                     }
                                 ]
                         }
+                        # other
+                        { include: "$self" }
                     ]
             }
             {
@@ -1334,6 +1379,7 @@ repository:
                             match: "\\b(?i)(max|min|lmax|lmin|first|last|sum|medi|mean|vari|stdv|rms|num)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
         ]
@@ -1354,6 +1400,7 @@ repository:
                             match: "\\b(?i)(eq|ne|lt|gt|le|ge|ablt|abgt|and|or|xor)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1365,6 +1412,7 @@ repository:
                             match: "\\b(?i)(stop)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1376,6 +1424,7 @@ repository:
                             match: "\\b(?i)(eq|ne|lt|gt|le|ge|ablt|abgt|stop|exit|cycle|then|and|or|xor)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
         ]
@@ -1396,6 +1445,7 @@ repository:
                             match: "\\b(?i)(svd|mgs)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1407,6 +1457,7 @@ repository:
                             match: "\\b(?i)(d|z|i|alloc|resize|copy|link|import|incore|outofcore|trans|full|stiff|mass|damp|rhs|mode|cms|nor|irf|cst|rst|nsl|vsl|asl|rf|sub|stiff|mass|damp|rhs|hbmat|ascii|binary|emat|stiff|mass|damp|stress|rhs|mat|apdl|rfrq|stf|mas|dmp|mmf|dmig|f)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1418,6 +1469,7 @@ repository:
                             match: "\\b(?i)(mmf|sub|hbmat|mat|emat|apdl|ps|dmig|sub|stiff|mass|damp|rhs|wait|done|hbmat|ascii|binary|emat|stiff|mass|damp|stress|apdl|ps|color|dmig)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1429,6 +1481,7 @@ repository:
                             match: "\\b(?i)(forw|back|full|part)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1440,6 +1493,7 @@ repository:
                             match: "\\b(?i)(zero|const|rand|diag|adiag)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1451,6 +1505,7 @@ repository:
                             match: "\\b(?i)(pcg)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1462,6 +1517,7 @@ repository:
                             match: "\\b(?i)(bcs|dss|lapack|dsp|incore|outofcore)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1473,6 +1529,7 @@ repository:
                             match: "\\b(?i)(invert)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1484,6 +1541,7 @@ repository:
                             match: "\\b(?i)(nrm2|nrm1|nrminf|yes|no)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1495,6 +1553,7 @@ repository:
                             match: "\\b(?i)(d|z|copy|import|diag|trans|full|stiff|mass|damp|nod2bcs|usr2bcs|gmat|hbmat|ascii|binary|mmf|dmig|mat)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
             }
             {
@@ -1506,7 +1565,34 @@ repository:
                             match: "\\b(?i)(d|z|i|alloc|resize|copy|import|link|full|rhs|gvec|back|forward|mode|rst|nsl|vsl|asl|rf|rfrq|frq|dsp|ans|dmig|f|sub|rhs|emat|rhs|mat|apdl|hbmat|ascii|binary)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
+                        { include: "$self" }
                     ]
+            }
+        ]
+    }
+
+
+    # set and get functions
+    apdl_functions: {
+        patterns: [
+            {
+                begin: "([\\w]+)(?=\\()"
+                beginCaptures:
+                    1: patterns: [
+                        {
+                            match: "\\b(?i)(sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|sqrt|abs|sign|nint|mod|exp|log|log10|rand|gdis|lwcase|upcase|valchr|chrval|ibset|ibclr|btest|bitand|bitor|bitxor|bitset|bitclear)\\b"
+                            name: "support.function.apdl"
+                        }
+                        {
+                            match: "\\b(?i)(nsel|esel|ksel|lsel|asel|vsel|ndnext|elnext|kpnext|lsnext|arnext|vlnext|centrx|centry|centrz|nx|ny|nz|kx|ky|kz|lx|ly|lz|lsx|lsy|lsz|node|kp|distnd|distkp|disten|anglen|anglek|nnear|knear|enearn|areand|areakp|arnode|normnx|normny|normnz|normkx|normky|normkz|enextn|nelem|nodedof|eladj|ndface|nmface|arface|eatt|rcon|ux|uy|uz|rotx|roty|rotz|temp|pres|vx|vy|vz|volt|mag|ax|ay|az|virtinqr|kwget|valchr|valoct|valhex|chrval|chroct|chrhex|strsub|strcat|strfill|strcomp|strleft|strpos|strleng|upcase|lwcase|join|split)\\b"
+                            name: "support.function.apdl"
+                        }
+                    ]
+                end: "(?<=\\))"
+                name: "meta.function.apdl"
+                patterns: [
+                    { include: "$self" }
+                ]
             }
         ]
     }
