@@ -29,7 +29,12 @@ patterns: [
     # commands
     { include: "#apdl_session_commands" }
     { include: "#apdl_database_commands" }
+    { include: "#apdl_graphics_commands" }
     { include: "#apdl_apdl_commands" }
+    # { include: "#apdl_prep7_commands" }
+    # { include: "#apdl_solution_commands" }
+    # { include: "#apdl_post1_commands" }
+    # { include: "#apdl_post26_commands" }
 
     # functions
     { include: "#apdl_functions" }
@@ -907,6 +912,835 @@ repository:
                     2: patterns: [
                         {
                             match: "\\b(?i)(noor|order)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+        ]
+    }
+
+
+    # graphics commands; see Command Reference 2.3
+    apdl_graphics_commands: {
+        patterns: [
+            { include: "#apdl_graphics_setup_commands" }
+            { include: "#apdl_graphics_views_commands" }
+            { include: "#apdl_graphics_scaling_commands" }
+            { include: "#apdl_graphics_style_commands" }
+            { include: "#apdl_graphics_labeling_commands" }
+            { include: "#apdl_graphics_graphs_commands" }
+            { include: "#apdl_graphics_annotation_commands" }
+        ]
+    }
+
+    apdl_graphics_setup_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(dsys|\/erase|erase|\/gcmd|\/gcolumn|\/gfile|gplot|\/gresume|\/gsave|immed|\/mrep|\/noerase|\/pstatus|\/reset)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\/cmap)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(create|save)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/color)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(axes|axnum|num|outl|elem|line|area|volu|isurf|wbak|u|rot|temp|pres|v|volt|mag|a|emf|curr|f|m|heat|flow|vf|amps|flux|csg|curt|vltg|mast|cp|ce|nfor|nmom|rfor|rmom|path|grbak|grid|axlab|curve|cm|cntr|smax|smin|pbak|blac|mred|mage|bmag|blue|cblu|cyan|gcya|gree|ygre|yell|oran|red|dgra|lgra|whit|stat|defa)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/device)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(bbox|vector|dither|anim|font|text|off|on)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/dv3d)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(accu|actr|anim|anti|cntr|dgen|dlist|dels|tris)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/graphics)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(full|power)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/gtype)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(node|elem|keyp|line|area|volu|grph)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(hpgl)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(model|7475a|7550a|7580b|7585b|7586b|colorpro|draftpro|draftmaster|paper|a|b|c|d|e|a4|a3|a2|a1|a0|carch|darch|earch|horizontal|vertical|color|direct)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/image)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(capture|restore|save|delete)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(jpeg)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(qual|orient|horizontal|vertical|color|tmod|default)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/pcopy)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(now)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(pngr)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(comp|on|off|orient|horizontal|vertical|color|tmod|default|stat)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(pscr)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(cmap|lwid|color|tranx|trany|rotate|scale|tiff|epsi|paper|a|b|c|d|e|a4|a3|a1|a0|orient|landscape|portrait|hires|stat)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/replot)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(resize|fast)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/seg)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(singl|multi|delet|off|stat|pc)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/show)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(term|close|file|off|pscr|hpgl|hpgl2|jpeg|tiff|png|vrml)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(tiff)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(comp|orient|horizontal|vertical|color|tmod|default)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/window)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(off|on|full|left|righ|top|bot|ltop|lbot|rtop|rbot|squa|dele)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+        ]
+    }
+
+    apdl_graphics_views_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\/angle)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(xs|ys|zs|xm|ym|zm)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/auto)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/dist)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|auto|user)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/focus)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|auto|user)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/user)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/vcone)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/view)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|wp)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/vup)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|y|-y|x|-x|z|-z)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/xfrm)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(node|element|kp|line|area|volume|xyz|off)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/zoom)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(off|back|scrn|rect)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+        ]
+    }
+
+    apdl_graphics_scaling_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\/iclwid|\/shrink)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\/dscale)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|auto|factor|off|user)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/icscale)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/ratio)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/sscale)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/txtre)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(elem|area|volu|cm|on|off|file)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/vscale)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+        ]
+    }
+
+    apdl_graphics_style_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\/cplane|\/ctype|\/eshape|\/gmarker)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\/clear)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(start|nostart)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/edge)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/facet)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(fine|norml|coar|wire)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/gline)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(gmface)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(fine)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/light)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/normal)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/shade)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|facet|gouraud|phong)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/trlcy)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(elem|area|volu|isurf|cm|curve|zcap|on|off)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/type)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|basic|sect|hidc|hidd|hidp|cap|zbuf|zcap|zqsl|hqsl)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+        ]
+    }
+
+    apdl_graphics_labeling_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\/cformat|\/number)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\/clabel)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/contour)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|auto|user)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/cval)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/gformat)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(g|f|e|stat|defa)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/hbc)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(all|on|yes|off|no)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/pbc)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(u|rot|temp|pres|v|volt|mag|a|conc|chrg|f|forc|m|mome|heat|flow|amps|flux|csg|rate|mast|cp|ce|nfor|nmom|rfor|rmom|path|acel|omeg|weld|all)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/pbf)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(temp|flue|hgen|js|jsx|jsy|jsz|phase|mvdi|chrgd|vltg)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/plopts)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(info|on|off|leg1|leg2|leg3|frame|title|minm|logo|wins|wp|date|file|auto)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/pnum)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(node|elem|sec|mat|type|real|esys|part|loc|kp|line|area|volu|sval|tabnam|stat|defa)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/psf)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(on|off|pres|norm|tanx|tany|inrm|itnx|itny|conv|hcoef|tbulk|rad|emis|tamb|rdsf|emss|encl|fsin|hflux|fsi|impd|shld|cond|mur|mxwf|inf|chrgs|mci|bli)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/psymb)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(cs|ndir|esys|ldir|ldiv|adir|layr|econ|dot|xnod|fbcs|defa|stat)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/triad)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(orig|off|lbot|rbot|ltop|rtop)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/udoc)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(cntr|date|gwin|type|typ2|inum|bcdc|vect|surf|body|psta|view|misc|off|left|right|top|bottom)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+        ]
+    }
+
+    apdl_graphics_graphs_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\/grtyp|\/xrange|\/yrange)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\/axlab)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(x|y)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/grid)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(off|on|x|y)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/gropt)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(axdv|axnm|axnsc|ascal|logx|logy|fill|cgrid|dig1|dig2|view|revx|revy|divx|divy|ltyp|curl|xaxo|yaxo|off|on|front)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/gthk)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(axis|grid|curve)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+        ]
+    }
+
+    apdl_graphics_annotation_commands: {
+        patterns: [
+            {
+                match: "^[ \\t]*(?i)(\/larc|\/line|\/lspec|\/lsymbol|\/pcircle|\/pmore|\/polygon|\/pspec|\/pwedge|\/tlabel|\/tspec)\\b"
+                name: "keyword.control.commands.apdl"
+            }
+            {
+                match: "^[ \\t]*(?i)(\/an3d)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(bitm|text|line|point|area|arrow|symbol)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/annot)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(off|on|dele|save|scale|xorig|yorig|snap|stat|defa|refr|tmod)\\b"
+                            name: "keyword.control.arguments.apdl"
+                        }
+                        { include: "$self" }
+                    ]
+            }
+            {
+                match: "^[ \\t]*(?i)(\/anum)\\b([^!]*)"
+                captures:
+                    1: name: "keyword.control.commands.apdl"
+                    2: patterns: [
+                        {
+                            match: "\\b(?i)(dele)\\b"
                             name: "keyword.control.arguments.apdl"
                         }
                         { include: "$self" }
